@@ -1,0 +1,331 @@
+/*form styles*/
+#msform {
+	margin: 50px auto;
+	text-align: center;
+	position: relative;
+}
+
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+/*inputs*/
+#msform input, #msform textarea {
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	color: #2C3E50;
+	font-size: 13px;
+}
+/*buttons*/
+#msform .action-button {
+	width: 100px;
+	background: #27AE60;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;
+}
+#msform .action-button:hover, #msform .action-button:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+/*headings*/
+.fs-title {
+	font-size: 15px;
+	text-transform: uppercase;
+	color: #2C3E50;
+	margin-bottom: 10px;
+}
+.fs-subtitle {
+	font-weight: normal;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 20px;
+}
+/*progressbar*/
+#progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	/*counter-reset: step;*/
+}
+#progressbar li {
+	list-style-type: none;
+	color: #b5b5b5;
+	text-transform: uppercase;
+	font-size: 9px;
+	width: 33.33%;
+	float: left;
+	position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+#progressbar li:before {
+    font-family: "Font Awesome 5 Free";
+    display: block;
+    content: "\f058";
+    width: 34px;
+    line-height: 33px;
+    font-size: 28px;
+    background: white;
+    margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+    content: '';
+    width: 88%;
+    height: 2px;
+    background: #b5b5b5;
+    position: absolute;
+    left: -44%;
+    top: 15px;
+    z-index: -1;
+}
+
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none; 
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before {
+    color: #d62828;
+    border-radius: 50%;
+    border: 1px solid #d62828;
+}
+
+#progressbar li.fa.active {
+    color: #33313b;
+}
+
+#progressbar li.active:after {
+    background: #d62828;
+    color: white;
+}
+
+#progressbar li.done:before {
+    border: 0;
+}
+
+/* BOOKING INFORMATIONS */
+
+.container-resv {
+    display: grid;
+    grid-template-columns: 3% auto 3%;
+    align-items: center;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px;
+}
+
+.previous_btn {
+    color: #d62828;
+    font-size: 25px;
+    border-bottom-right-radius: 45px;
+    border-top-right-radius: 45px;
+    background: #e2e2e2;
+    line-height: 70px;
+    padding: 0 6px 0 0;
+}
+
+.next-day {
+    color: #d62828;
+    font-size: 25px;
+    border-bottom-left-radius: 45px;
+    border-top-left-radius: 45px;
+    background: #e2e2e2;
+    line-height: 70px;
+    padding: 0 0 0 6px;
+}
+
+.available-days-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+}
+
+.available-days {
+    border-right: 1px dashed #a2a2a2;
+    transition-property: all;
+    transition-duration: 1s;
+}
+
+.available-days.active {
+    border-bottom: 5px solid #d62828;
+    transition-property: all;
+    transition-duration: 1s;
+}
+
+.last-grid {border: 0;}
+
+.available-days img {
+    width: 30px;
+    padding: 3px;
+    border: 1px solid #a2a2a2;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.available-days.active h3 {
+    color: #d62828;
+    font-weight: 500;
+    margin: 0;
+}
+
+.available-days.active .grid {
+    border: 1px solid #cacaca;
+    border-bottom: 0;
+    background: #fff;
+    position: relative;
+    bottom: 20px;
+}
+
+.available-days.active .grid h3 {
+    font-size: 2.5rem;
+}
+.available-days.active .grid p {
+    color: #353535;
+    font-weight: 600;
+}
+
+/* TICKET */
+
+
+.ticket {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    display: grid;
+    text-align: center;
+    grid-template-columns: auto 5%;
+    align-items: center;
+    cursor: pointer;
+    transition: .5s;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+    background-size: 51% 100%;
+    background-repeat: no-repeat;
+    background-image: radial-gradient(circle at 0 50%, rgba(255,255,224,0) 0.4em, #ffffff 0.5em), radial-gradient(circle at 100% 50%, rgba(255,255,224,0) 0.4em, #ffffff 0.5em);
+    background-position: top left, top right;
+}
+
+.ticket-center {
+    display: grid;
+    grid-template-columns: auto 20%;
+}
+
+.ticket .btn_close i {
+    color: #fff;
+    font-size: 23px;
+    background: #d62828;
+    border: 2px solid #b70a0a;
+    padding: 6px 9px;
+    border-radius: 50%;
+    position: relative;
+    top: -65px;
+    left: 20px;
+    transition: .4s;
+    cursor: default;
+}
+
+.ticket .btn_close i:hover {
+    background: #c11414;
+    font-size: 20px;
+    padding: 7px 10px;
+}
+
+.ticket:hover {
+    filter: drop-shadow(0 20px 25px rgba(0,0,0,0.5));
+    margin-top: 2rem;
+}
+
+.ticket-form {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    border-right: 2px dashed #e2e2e2;
+}
+
+.departure, .arrival {
+    padding: 10px 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+}
+
+
+p.airp {
+    color: #4a4a4a;
+    font-weight: 600;
+}
+
+p.airp, p.city {
+    margin: 0;
+}
+
+.country img {
+    width: 40px;
+    max-width: 40px;
+}
+
+
+.timing {
+    display: grid;
+    align-items: center;
+    margin: 40px 0 0 0;
+    border-top: 2px solid #e2e2e2;
+}
+
+p.time {
+    font-size: 2rem;
+    color: #000;
+    margin: 0;
+}
+
+.icon-timing {
+    position: relative;
+    bottom: 25px;
+}
+
+.icon-timing i {
+    background: #fff;
+    padding: 10px;
+    color: #d62828;
+}
+
+.ticket-price button {
+    background: #d62828;
+    color: #ffff;
+    border: 2px solid #ff6e6e;
+    border-radius: 3px;
+    padding: 5px 15px;
+}
+.ticket-price span {
+    font-size: 2rem;
+    color: #d62828;
+}
+
+p.flight-time {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    color: #000;
+}
+
+
+/* CONFIRMING TICKET */
+
+.ticket.confirmed {
+    transition: .5s;
+    filter: drop-shadow(0 5px 20px #00a14f);
+}
+
+.ticket.confirmed .ticket-form {
+    border-right: 2px dashed #1aab61;
+}
+
+.ticket.confirmed .ticket-price .price {
+    color: #00a14f;
+    font-weight: 600;
+    font-size: 2.3rem;
+}

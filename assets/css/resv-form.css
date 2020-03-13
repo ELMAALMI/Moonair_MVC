@@ -1,0 +1,96 @@
+/* DROP DOWN ICON UP OF THE MAIN CONTAINER */
+
+.dropdown-pin {
+    position: absolute;
+    top: -8px;
+    left: 8rem;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 25px 24px 25px;
+    border-color: transparent transparent #4f4c58 transparent;
+}
+
+.airport_list {
+    display: grid;
+    grid-template-columns: auto 15%;
+    width: 50%;
+    margin-top: 1rem;
+    padding: 15px 0 15px 25px;
+    background: #4f4c58;
+    position: absolute;
+    z-index: 999;
+    top: 0;
+}
+
+/* THE CONTAINER OF THE RESERVATION CHOOSER */
+
+.airport_list .airport_list_title {
+    color: #dedede;
+    font-weight: 100;
+    letter-spacing: 2px;
+    padding-bottom: 5px;
+}
+
+.airport_list .airport_list_title:after {
+    content: '';
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: block;
+    width: 33%;
+    border-bottom: 1px solid #deded6;
+}
+
+.airport_list a.btn_close:hover {
+    color: #ffffff;
+}
+
+.airport_list a.btn_close {
+    transition: .5s;
+    cursor: pointer;
+}
+
+/* LIST OF DESTINATIONS */
+
+.airport_list .city-chooser {
+    padding: 0 10px;
+}
+.airport_list .city-chooser li {
+    display: block;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* PASSENGERS TYPE */
+
+.passengers-type {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.adults, .childs {
+    display: grid;
+    grid-template-columns: 40% 50%;
+}
+
+.adults label, .childs label {
+    font-size: 15px !important;
+}
+
+.hide-btn {
+    margin-top: 85px;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.hide-btn:hover{
+    color: #fff;
+}
+
+
+
+
+
+
+
+
