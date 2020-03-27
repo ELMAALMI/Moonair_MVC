@@ -22,7 +22,7 @@
 	font-size: 13px;
 }
 /*buttons*/
-#msform .action-button {
+#msform .action-button, #msform .disabled-btn, #msform .disabled-btn-return {
 	width: 100px;
 	background: #27AE60;
 	font-weight: bold;
@@ -36,12 +36,23 @@
 #msform .action-button:hover, #msform .action-button:focus {
 	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
 }
+
+#msform .disabled-btn, #msform .disabled-btn-return {
+    background: #bbb !important;
+}
+
+#msform .disabled-btn:hover, #msform .disabled-btn:focus, #msform .disabled-btn-return:hover, #msform .disabled-btn-return:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #bbb;
+}
+
+
 /*headings*/
 .fs-title {
-	font-size: 15px;
-	text-transform: uppercase;
-	color: #2C3E50;
-	margin-bottom: 10px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-align: left;
+    color: #2C3E50;
+    margin-bottom: 30px;
 }
 .fs-subtitle {
 	font-weight: normal;
@@ -67,7 +78,8 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-#progressbar li:before {
+#progressbar li:before
+{
     font-family: "Font Awesome 5 Free";
     display: block;
     content: "\f058";
@@ -89,7 +101,8 @@
     z-index: -1;
 }
 
-#progressbar li:first-child:after {
+#progressbar li:first-child:after
+{
 	/*connector not needed before the first step*/
 	content: none; 
 }
@@ -217,7 +230,8 @@
     grid-template-columns: auto 20%;
 }
 
-.ticket .btn_close i {
+.ticket .btn_close i
+ {
     color: #fff;
     font-size: 23px;
     background: #d62828;
@@ -328,4 +342,59 @@ p.flight-time {
     color: #00a14f;
     font-weight: 600;
     font-size: 2.3rem;
+}
+
+/* TRAVELERS INFORMATIONS */
+
+.passangers-details {
+    display: grid;
+    grid-template-columns: auto auto;
+    border-top: 2px solid #dedede;
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 4rem;
+}
+
+.passangers-numb ul {
+    padding: 0;
+    margin-right: 20px;
+}
+
+.passangers-numb ul li {
+    display: grid;
+    grid-template-columns: 10% auto;
+    align-items: center;
+    background: #dedede;
+    text-align: left;
+    padding-left: 20px;
+    padding: 10px 0 10px 20px;
+    cursor: pointer;
+}
+
+.passangers-numb ul li.active-passanger {
+    background: #d62828;
+    color: #fff;
+    border-bottom: 3px solid #ff6c6c;
+}
+
+.passenger-form {
+    display: grid;
+    grid-template-rows: 10px auto 10px auto 10px auto;
+    grid-template-columns: auto auto auto;
+    text-align: left;
+    grid-gap: 20px;
+}
+
+.passangers-infos .choosen_traveler {
+    text-align: left;
+}
+
+.passenger-form p {
+    margin: 0;
+}
+
+.passenger-form input, .passenger-form select {
+    padding: 7px 10px !important;
+    font-size: 17px !important;
+    margin: 0 !important;
+    border: 1px solid #999 !important;
 }

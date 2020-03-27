@@ -142,7 +142,6 @@ function search_from()
 
     xhttp.open("GET","AjaxSearchController?fromairp="+key,true);
     xhttp.send();
-
 }
 
 

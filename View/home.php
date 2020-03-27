@@ -1,6 +1,6 @@
 
     <!-- END nav -->
-    
+    <?php  ?>
     <div class="hero-wrap js-fullheight" id="slideshow" style="background-image: url('assets/imgs/Slideshow/Wall-1.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
@@ -18,17 +18,17 @@
     	<div class="container">
     		<div class="row justify-content-center pb-4">
           <div class="col-md-12 heading-section text-center ftco-animate">
-            <h2 class="mb-4">Best Place Destination</h2>
+            <h2 class="mb-4">TOP OFFRE IN 2020</h2>
           </div>
 		</div>
         <div class="row">
-            <?php foreach ($data[0] as $fl) {?>
+            <?php foreach ($data['offre'] as $fl) {?>
         	<div class="col-md-3 ftco-animate">
         		<div class="project-destination">
-        			<a href="#" class="img" style="background-image: url('assets/imgs/images/place-1.jpg');">
+        			<a href="#" class="img" style="background-image: url('assets/imgs/City/<?php echo $fl['wallpaper'];?>');">
         				<div class="text">
         					<h3><?php echo $fl['city'];?></h3>
-        					<span>8 Tours</span>
+        					<span><?php echo $fl['price_pct'];?>  %</span>
         				</div>
         			</a>
         		</div>
@@ -45,20 +45,15 @@
           </div>
         </div>
         <div class="row">
-            <?php foreach ($data[1] as $all) {?>
+            <?php foreach ($data['flight'] as $all) {?>
         	<div class="col-md-4 ftco-animate">
         		<div class="project-wrap">
         			<a href="<?php echo $all[''];?>" class="img" style="background-image: url('assets/imgs/images/destination-1.jpg');"></a>
         			<div class="text p-4">
-        				<span class="price"><?php echo $all['price'];?> $/person</span>
-        				<span class="days">8 Days Tour</span>
-        				<h3><a href="#">Bali, Indonesia</a></h3>
-        				<p class="location"><span class="ion-ios-map"></span> Bali, Indonesia</p>
-        				<ul>
-        					<li><span class="flaticon-shower"></span>2</li>
-        					<li><span class="flaticon-king-size"></span>3</li>
-        					<li><span class="flaticon-mountains"></span>Near Mountain</li>
-        				</ul>
+        				<span class="price"><?php echo $all['price'];?> $ - PER</span>
+        				<span class="days"><span class="flaticon-route"></span> MOROCCO</span>
+        				<h3><a href="#"><span class="flaticon-route"></span><?php echo $all['city'].",".$all['country'] ?></a></h3>
+        				<p class="location"><span class="ion-ios-map"></span>MOROCCO ==>  <?php echo$all['country'] ?></p>
         			</div>
         		</div>
 			</div>

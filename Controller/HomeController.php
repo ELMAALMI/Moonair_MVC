@@ -10,15 +10,15 @@ class HomeController extends Controller
 
     public function gethome()
     {
-        parent::index('home',array($this->getdata(),$this->getallfight()));
+        parent::index('home',array("offre"=>$this->offre(),"flight"=>$this->getrandomflight()));
     }
 
-    public function getdata()
+    public function offre()
     {
-        return $this->var->getoffre(120);
+        return $this->var->getoffre();
     }
-    public function getallfight()
+    public function getrandomflight()
     {
-        return $this->var->getallflight();
+      return (new flight())->randomflight(12,'Morocco');   
     }
 }

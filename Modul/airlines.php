@@ -86,7 +86,7 @@ class airlines
     {
         try
         {
-            DB::delete("DELETE FROM LINE WHERE line_num = $line");
+            DB::select("DELETE FROM LINE WHERE line_num = $line");
         }catch(Exception $e)
         {
             echo "we have a problem "+$e;

@@ -4,15 +4,79 @@ var current_fs, next_fs, previous_fs; //fieldsets
 var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
 var prev;
+var click = 0; // num of click in next input
 
-$(".next").click(function(){
+/* ################################################## 
+
+          HIDE POP MSG FOR EMPTY INPUT 
+
+##################################################### */
+$('.hover_bkgr_fricc').click(function()
+{
+	$('.hover_bkgr_fricc').hide();
+});
+$('.popupCloseButton').click(function(){
+	$('.hover_bkgr_fricc').hide();
+});
+
+
+$(".next").click(function()
+{
+	/* ################################################## 
+
+            USER INPUT VALIDATION
+
+   ################################################## */
+
+	click++;
+    
+	if(click == 2)
+	{
+		console.log(click);
+		console.log(adults);
+		/* ################################################## 
+          		  ADULT INPUT VALIDATION
+        ################################################## */
+		for(let i=1;i<=adults;i++)
+		{
+			let valadult = document.forms["flightinfo"]["adult_lname_"+i].value;
+			if( valadult == '' || valchild == '' )
+			{
+				$('.hover_bkgr_fricc').show();
+				click = 1 ;
+				return ;
+			}
+			
+		}
+		/* ################################################## 
+						CHILLDS INPUT VALIDATION
+		  ################################################## */
+		if(childs!= 0)
+		{
+			for(let j=1;j<=childs;j++)
+			{
+				let valchild = document.forms["flightinfo"]["child_lname_"+j].value;
+				if( valadult == '' || valchild == '' )
+				{
+					$('.hover_bkgr_fricc').show();
+					click = 1 ;
+					return ;
+				}
+
+			}
+		}
+	}
+	
 	if(animating) return false;
 	animating = true;
 	
 	current_fs = $(this).parent();
 	next_fs = $(this).parent().next();
-	
-	//activate next step on progressbar using the index of next_fs
+	/* ############################################################ 
+
+	 activate next step on progressbar using the index of next_fs
+
+   ############################################################### */
 	$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 	$("#progressbar li").eq($("fieldset").index(current_fs)).addClass("done");
 	

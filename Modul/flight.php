@@ -18,6 +18,7 @@ class flight extends Modul
 
         }
     }
+    
     public function like($pattern, $subject)
     {
         $pattern = str_replace('%', '.*', preg_quote($pattern, '/'));
@@ -51,7 +52,10 @@ class flight extends Modul
     {
         return $this->all_flight;
     }
-
+    public function getallline()
+    {
+      return $this->all_line;
+    }
     public function getflight($id)
     {
         $flight = '' ;
@@ -65,19 +69,103 @@ class flight extends Modul
         return $flight;
     }
 
-    public function getoffre($limit)
+    public function getoffre($limit = 4)
     {
-        $flight = array();
-        foreach($this->all_flight as $fly)
+
+        $flight = [];
+        
+        foreach($this->getallline() as $tab1)
         {
-            if($fly['price']<=$limit )
+            $test = $this->testflight($tab1['line_num'] );
+            if(count($flight) == 4){break;}
+            
+            if($test['etat'] != 0)
             {
-                $flight[] = $fly;
+                $tab1['price_pct'] = $test['price_pct'];
+                array_push($flight,$tab1);
             }
         }
         return $flight;
     }
+    public function testflight($num)
+    {
+        $etat = 0;
+        $price = null;
+        foreach($this->getallflight() as $tab2)
+        {
+            
+            if($tab2['line_num'] == $num)
+            {
+                $etat = 1;
+                $price = $tab2['price_pct'];
+                break;
+            }
+        }
+        return  array("etat"=>$etat,"price_pct"=>$price);
+    }
 
+    public function pagination($pagenum)
+    {
+        $tab = [];
+        $result = [];
+        foreach($this->all_line as $ls)
+        {
+            array_push($tab,$ls);
+        }
+        $numofflight = 12;
+        $total_rows = count($tab);
+        $total_pages = ceil($total_rows / $numofflight); 
+        if($pagenum <= $total_pages)
+        {
+            if($pagenum == 1)
+            {
+                $limit = $numofflight;
+                $de    = 0 ;
+            }
+            elseif($pagenum == $total_pages)
+            {
+                $limit = $total_rows;
+                $de    = $total_rows - $numofflight;
+            }
+            else
+            {
+                $limit = $pagenum * $numofflight;
+                $de    = $limit - $numofflight; 
+            }
+            for ($i= $de ; $i < $limit ; $i++)
+            { 
+               array_push($result,$tab[$i]);
+            }
+            return array($result,$total_pages);
+        }
+        else
+        {
+            return "no data found";
 
+        }
+
+    }
+    public function randomflight($num,$country)
+    {
+        $tab = [];
+        $result = [];
+        foreach($this->all_line as $ls)
+        {
+            array_push($tab,$ls);
+        }
+        $total_rows = count($tab);
+
+        for ($i=0;; $i++)
+        { 
+            $index =  rand(0,$total_rows-1);
+            if($tab[$index]['country'] != $country)
+            {
+             array_push($result,$tab[$index]);
+            }
+            if(count($result) == $num)
+                break;
+        }
+        return $result;
+    }
 
 }

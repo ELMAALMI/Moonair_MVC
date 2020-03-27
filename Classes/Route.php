@@ -11,6 +11,8 @@ class Route
 
     private $request;
 
+
+
     /*********************************************
      *            Route of web site
      * *******************************************/
@@ -19,7 +21,7 @@ class Route
                             "about"=>['Controller' => 'AboutController', 'methode' => 'getabout'],
                             "contact"=>['Controller' => 'ContactController', 'methode' => 'getcontact'],
                             "destination"=>['Controller' => 'DestinationController', 'methode' => 'getdestination'],
-                            "AjaxSearchController"=>['Controller' => 'AjaxSearchController', 'methode' => 'getmsg'],
+                            "AjaxSearchController"=>['Controller' => 'AjaxSearchController', 'methode' => 'getinfo'],
                             "search"=>['Controller' => 'SearchController', 'methode' => 'getsearchpage']);
 
     /*********************************************
@@ -32,7 +34,8 @@ class Route
         {
             $this->request = "home";
         }
-        else {
+        else 
+        {
             $this->request = $resquest;
         }
     }
@@ -45,10 +48,13 @@ class Route
     {
         if (key_exists($this->request,$this->routes))
         {
-          $controller = $this->routes[$this->request]['Controller'];
-          $methode    = $this->routes[$this->request]['methode'];
-          $Curentecontroller = new $controller();
-          $Curentecontroller->$methode();
+           
+         
+                $controller = $this->routes[$this->request]['Controller'];
+                $methode    = $this->routes[$this->request]['methode'];
+                $Curentecontroller = new $controller();
+                $Curentecontroller->$methode();
+            
         }
         else
         {

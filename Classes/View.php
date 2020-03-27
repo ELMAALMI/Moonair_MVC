@@ -50,7 +50,7 @@ class View
          }
          else
          {
-             include(VIEW . $this->template . ".php");
+             include(VIEW.$this->template.".php");
          }
      }
 }

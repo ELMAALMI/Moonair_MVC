@@ -170,6 +170,17 @@ class airports
             }
         }
     }
+        
+    public function delAirport($code)
+    {
+        try
+        {
+            DB::select("DELETE FROM AIRPORTS WHERE airport_code = '$code'");
+        }catch(Exception $e)
+        {
+            echo "we have a problem "+$e;
+        }
+    }
     public function getinfo()
     {
 
@@ -203,6 +214,16 @@ class airports
             else
                 $this->showPossibleDest("");
         }
+    }
+
+    public function getnationality()
+    {
+        $tab = [];
+        foreach (DB::select("SELECT distinct country from airports") as $ls)
+        {
+            array_push($tab,$ls);
+        }
+        return json_encode($tab);
     }
 }
 
